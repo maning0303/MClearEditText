@@ -2,7 +2,7 @@
     带有删除功能的EditText
 
 ####屏幕截图
-![images](https://github.com/maning0303/MClearEditText/edit/master/screenshots/001.png)
+![screenshots](https://github.com/maning0303/MClearEditText/blob/master/screenshots/001.png)
 
 ####代码片段
     <com.maning.myview.MClearEditText
