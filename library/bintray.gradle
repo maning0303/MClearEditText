@@ -1,0 +1,95 @@
+//项目名
+def projectName = "MClearEditText"
+//组名
+def projectGroupId = "com.maning"
+def projectSiteUrl = "https://github.com/maning0303/MClearEditText"
+def projectGitUrl = "https://github.com/maning0303/MClearEditText.git"
+
+//bintray账号名
+def developerId = "maning0303"
+//bintray中的名字
+def developerName = "maning0303"
+def developerEmail = "154292322@qq.com"
+//bintray账号名
+def bintrayUser = "maning0303"
+//bintray api key，在bintray的用户属性页中可以找到哦
+def bintrayApikey = "75b08ab1b6ebed78e1010967866289fdf1a67875"
+
+//===========以下不要修改=============
+
+def projectPackaging = "aar"
+def projectVersionName = android.defaultConfig.versionName
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+group = projectGroupId
+
+// This generates POM.xml with proper parameters
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging projectPackaging
+                name projectName
+                version projectVersionName
+                url projectSiteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id developerId
+                        name developerName
+                        email developerEmail
+                    }
+                }
+                scm {
+                    connection projectGitUrl
+                    developerConnection projectGitUrl
+                    url projectSiteUrl
+                }
+            }
+        }
+    }
+}
+
+// This generates sources.jar
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+// This generates javadoc.jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+// bintray configuration
+bintray {
+    user = bintrayUser
+    key = bintrayApikey
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = projectName
+        websiteUrl = projectSiteUrl
+        vcsUrl = projectGitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
