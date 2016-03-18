@@ -5,7 +5,7 @@
 ![screenshots](https://github.com/maning0303/MClearEditText/blob/master/screenshots/001.png)
 
 ####代码片段
-    <com.maning.myview.MClearEditText
+    <com.maning.library.MClearEditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@null"

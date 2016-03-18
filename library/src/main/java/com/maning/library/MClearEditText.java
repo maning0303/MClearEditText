@@ -1,4 +1,4 @@
-package com.maning.myview;
+package com.maning.library;
 
 import android.content.Context;
 import android.graphics.Canvas;
