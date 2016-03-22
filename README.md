@@ -6,11 +6,11 @@
 
 
 ####使用方式
-*gradle直接添加：
+* gradle直接添加：
     
         compile 'com.maning:librarymclearedittext:1.0.0'
     
-*或者直接下载代码
+* 或者直接下载代码
     
 ####代码片段
     <com.maning.library.MClearEditText
