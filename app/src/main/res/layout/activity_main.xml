@@ -28,9 +28,9 @@
         android:inputType="textPassword"
         android:textSize="14sp"
         app:mClearEditText_bottomLineColor="@color/colorAccent"
+        app:mClearEditText_bottomLineWidth="1dp"
         app:mClearEditText_disableClear="false"
         app:mClearEditText_rightDrawableSize="20dp"
-        app:mClearEditText_bottomLineWidth="1dp"
         />
 
 
@@ -39,12 +39,13 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/icon_other2"
-        android:drawableRight="@drawable/icon_clear"
         android:drawablePadding="6dp"
+        android:drawableRight="@drawable/icon_clear"
         android:hint="自定义清除按钮(大小和样式)"
         android:textSize="14sp"
-        app:mClearEditText_rightDrawableSize="24dp"
         app:mClearEditText_bottomLineColor="@color/colorPrimary"
+        app:mClearEditText_leftDrawableSize="20dp"
+        app:mClearEditText_rightDrawableSize="24dp"
         />
 
     <com.maning.library.MClearEditText
@@ -54,20 +55,43 @@
         android:drawablePadding="6dp"
         android:hint="改变线的宽度"
         android:textSize="14sp"
-        app:mClearEditText_bottomLineWidth="10dp"
         app:mClearEditText_bottomLineColor="#b4ba05"
+        app:mClearEditText_bottomLineWidth="10dp"
         />
 
     <com.maning.library.MClearEditText
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
         android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_centerInParent="true"
         android:drawableLeft="@drawable/icon_other"
         android:drawablePadding="6dp"
         android:hint="底部的线不显示"
         android:textSize="14sp"
-        app:mClearEditText_bottomLineColor="@color/colorPrimary"
         app:mClearEditText_showBottomLine="false"
         />
+
+    <RelativeLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_bg">
+
+        <com.maning.library.MClearEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:mClearEditText_leftDrawableSize="18dp"
+            android:drawableLeft="@drawable/icon_other2"
+            android:drawablePadding="6dp"
+            android:hint="底部的线不显示"
+            android:textSize="14sp"
+            app:mClearEditText_showBottomLine="false"
+            />
+
+    </RelativeLayout>
+
 
 </LinearLayout>
