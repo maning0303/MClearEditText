@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MClearEditText">
+        <!--是否展示底部线 : 默认显示 -->
+        <attr name="mClearEditText_showBottomLine" format="boolean"/>
+        <!--底部线的颜色-->
+        <attr name="mClearEditText_bottomLineColor" format="color"/>
+        <!--底部线的宽度-->
+        <attr name="mClearEditText_bottomLineWidth" format="dimension"/>
+        <!-- 左边图片的大小 -->
+        <attr name="mClearEditText_leftDrawableSize" format="dimension"/>
+        <!-- 是否显示右边删除按钮 :默认显示-->
+        <attr name="mClearEditText_disableClear" format="boolean"/>
+        <!-- 右边图片的大小 -->
+        <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
+    </declare-styleable>
+
+
+</resources>

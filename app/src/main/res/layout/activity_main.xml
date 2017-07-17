@@ -1,36 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp">
 
     <com.maning.library.MClearEditText
+        android:id="@+id/mClearEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@null"
         android:drawableLeft="@drawable/icon_user"
         android:drawablePadding="6dp"
-        android:drawableStart="@drawable/icon_user"
         android:focusable="true"
         android:gravity="center_vertical"
-        android:hint="请输入手机号码"
-        android:singleLine="true"
-        android:textSize="16sp" />
+        android:hint="默认显示"
+        android:textSize="14sp"
+        />
 
     <com.maning.library.MClearEditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:background="@null"
         android:drawableLeft="@drawable/icon_password"
         android:drawablePadding="6dp"
-        android:drawableStart="@drawable/icon_password"
-        android:focusable="true"
-        android:gravity="center_vertical"
-        android:hint="请输入密码"
+        android:hint="清除功能不可见"
         android:inputType="textPassword"
-        android:singleLine="true"
-        android:textSize="16sp" />
+        android:textSize="14sp"
+        app:mClearEditText_bottomLineColor="@color/colorAccent"
+        app:mClearEditText_disableClear="false"
+        />
+
+
+    <com.maning.library.MClearEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/icon_other2"
+        android:drawableRight="@drawable/icon_clear"
+        android:drawablePadding="6dp"
+        android:hint="自定义清除按钮(大小和样式)"
+        android:textSize="14sp"
+        app:mClearEditText_rightDrawableSize="24dp"
+        app:mClearEditText_bottomLineColor="@color/colorPrimary"
+        />
+
+    <com.maning.library.MClearEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="6dp"
+        android:hint="改变线的宽度"
+        android:textSize="14sp"
+        app:mClearEditText_bottomLineWidth="10dp"
+        app:mClearEditText_bottomLineColor="#b4ba05"
+        />
+
+    <com.maning.library.MClearEditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/icon_other"
+        android:drawablePadding="6dp"
+        android:hint="底部的线不显示"
+        android:textSize="14sp"
+        app:mClearEditText_bottomLineColor="@color/colorPrimary"
+        app:mClearEditText_showBottomLine="false"
+        />
 
 </LinearLayout>
