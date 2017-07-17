@@ -29,6 +29,8 @@
         android:textSize="14sp"
         app:mClearEditText_bottomLineColor="@color/colorAccent"
         app:mClearEditText_disableClear="false"
+        app:mClearEditText_rightDrawableSize="20dp"
+        app:mClearEditText_bottomLineWidth="1dp"
         />
 
 
