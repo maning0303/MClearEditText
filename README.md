@@ -1,4 +1,4 @@
-# MClearEditText（Android Studio）
+# MClearEditText--带有删除功能的EditText（Android Studio）[![](https://jitpack.io/v/maning0303/MClearEditText.svg)](https://jitpack.io/#maning0303/MClearEditText)
     带有删除功能的EditText
 
 ## 屏幕截图
@@ -22,7 +22,7 @@
 #### 2.在app目录下的build.gradle中添加依赖
 ``` gradle
 	dependencies {
-	     compile 'com.maning:librarymclearedittext:1.1.0'
+	     compile 'com.github.maning0303:MClearEditText:V1.1.0'
 	}
 ```
 
