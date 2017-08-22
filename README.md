@@ -27,7 +27,7 @@
 ```
 
 ### 2:源码Model添加：
-#### 直接关联calendarlibrary
+#### 直接关联librarymclearedittext
 
 ``` gradle
 	compile project(':librarymclearedittext')
