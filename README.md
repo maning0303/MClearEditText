@@ -2,8 +2,8 @@
     带有删除功能的EditText
 
 ## 屏幕截图
-![screenshots](https://github.com/maning0303/MClearEditText/blob/master/screenshots/mn_clear_edittext_screenshot_001.png)
-![screenshots](https://github.com/maning0303/MClearEditText/blob/master/screenshots/mn_clear_edittext_screenshot_002.png)
+![](https://github.com/maning0303/MClearEditText/raw/master/screenshots/mn_clear_edittext_screenshot_001.png)
+![](https://github.com/maning0303/MClearEditText/raw/master/screenshots/mn_clear_edittext_screenshot_002.png)
 
 
 ## 如何添加
