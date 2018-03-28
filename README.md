@@ -22,7 +22,7 @@
 #### 2.在app目录下的build.gradle中添加依赖
 ``` gradle
 	dependencies {
-	     compile 'com.github.maning0303:MClearEditText:V1.1.0'
+	     compile 'com.github.maning0303:MClearEditText:V1.1.2'
 	}
 ```
 
@@ -44,13 +44,13 @@
         <attr name="mClearEditText_showBottomLine" format="boolean"/>
         <!--底部线的颜色-->
         <attr name="mClearEditText_bottomLineColor" format="color"/>
-        <!--底部线的宽度-->
+        <!--底部线的宽度 dp-->
         <attr name="mClearEditText_bottomLineWidth" format="dimension"/>
-        <!-- 左边图片的大小 -->
+        <!-- 左边图片的大小 dp-->
         <attr name="mClearEditText_leftDrawableSize" format="dimension"/>
         <!-- 是否显示右边删除按钮 :默认显示-->
         <attr name="mClearEditText_disableClear" format="boolean"/>
-        <!-- 右边图片的大小 -->
+        <!-- 右边图片的大小 dp-->
         <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
     </declare-styleable>
 
