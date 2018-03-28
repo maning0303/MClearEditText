@@ -23,6 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
-//    compile 'com.github.maning0303:MClearEditText:V1.1.0'
+//    compile 'com.github.maning0303:MClearEditText:V1.1.2'
     compile project(':librarymclearedittext')
 }
