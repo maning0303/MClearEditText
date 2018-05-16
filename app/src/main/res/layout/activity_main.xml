@@ -12,6 +12,7 @@
         android:layout_height="40dp"
         android:drawablePadding="6dp"
         android:focusable="true"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
         android:gravity="center_vertical"
         android:hint="默认显示"
         android:textSize="14sp" />
