@@ -103,7 +103,7 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
         //是否展示底部线
         showBottomLine = ta.getBoolean(R.styleable.MClearEditText_mClearEditText_showBottomLine, true);
         //底部线的颜色
-        defaultBottomLineColor = ta.getColor(R.styleable.MClearEditText_mClearEditText_bottomLineColor, Color.parseColor("#666666"));
+        defaultBottomLineColor = ta.getColor(R.styleable.MClearEditText_mClearEditText_bottomLineColor, Color.parseColor("#E6E6E6"));
         //底部线的宽度dp
         bottomLineWidth = ta.getDimension(R.styleable.MClearEditText_mClearEditText_bottomLineWidth, dip2px(context, 1));
         //左边按钮的大小dp
@@ -195,7 +195,7 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
     @Override
     public void afterTextChanged(Editable s) {
         //更新状态
-        updateDrawable(true);
+        updateDrawable(hasFoucs);
     }
 
     @Override
