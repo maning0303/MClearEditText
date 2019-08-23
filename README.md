@@ -1,5 +1,5 @@
 # MClearEditText--带有删除功能的EditText（Android Studio）[![](https://jitpack.io/v/maning0303/MClearEditText.svg)](https://jitpack.io/#maning0303/MClearEditText)
-    带有删除功能的EditText
+    带有删除功能的EditText，可以自定义删除图片，自定义下划线等
 
 ## 屏幕截图
 ![](https://github.com/maning0303/MClearEditText/raw/master/screenshots/mn_clear_edittext_screenshot_001.png)
