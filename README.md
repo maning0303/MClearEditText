@@ -24,7 +24,7 @@
 #### 2.在app目录下的build.gradle中添加依赖
 ``` gradle
 	dependencies {
-	     compile 'com.github.maning0303:MClearEditText:V1.1.3'
+	     compile 'com.github.maning0303:MClearEditText:V1.1.4'
 	}
 ```
 
@@ -41,20 +41,20 @@
 
 ``` java
 
-    <declare-styleable name="MClearEditText">
-        <!--是否展示底部线 : 默认显示 -->
-        <attr name="mClearEditText_showBottomLine" format="boolean"/>
-        <!--底部线的颜色-->
-        <attr name="mClearEditText_bottomLineColor" format="color"/>
-        <!--底部线的宽度 （默认1px）-->
-        <attr name="mClearEditText_bottomLineWidth" format="dimension"/>
-        <!-- 左边图片的大小 (默认18dp)-->
-        <attr name="mClearEditText_leftDrawableSize" format="dimension"/>
-        <!-- 是否显示右边删除按钮 :默认显示-->
-        <attr name="mClearEditText_disableClear" format="boolean"/>
-        <!-- 右边图片的大小 (默认18dp)-->
-        <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
-    </declare-styleable>
+    <!--是否展示底部线 : 默认显示 -->
+    <attr name="mClearEditText_showBottomLine" format="boolean"/>
+    <!--底部线的颜色-->
+    <attr name="mClearEditText_bottomLineColor" format="color"/>
+    <!--底部线的宽度-->
+    <attr name="mClearEditText_bottomLineWidth" format="dimension"/>
+    <!-- 左边图片的大小 -->
+    <attr name="mClearEditText_leftDrawableSize" format="dimension"/>
+    <!-- 是否显示右边删除按钮 :默认显示-->
+    <attr name="mClearEditText_disableClear" format="boolean"/>
+    <!-- 右边图片的大小 -->
+    <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
+    <!-- 一直显示右侧图标 -->
+    <attr name="mClearEditText_rightDrawableAlwaysShow" format="boolean"/>
 
 ```
 
