@@ -25,5 +25,5 @@ dependencies {
     implementation project(':librarymclearedittext')
 
     //快速添加
-//    implementation 'com.github.maning0303:MClearEditText:V1.1.3'
+//    implementation 'com.github.maning0303:MClearEditText:V1.1.4'
 }
