@@ -2,9 +2,11 @@
     带有删除功能的EditText，可以自定义删除图片，自定义下划线等
 
 ## 屏幕截图
-![](https://github.com/maning0303/MClearEditText/raw/master/screenshots/mn_clear_edittext_screenshot_001.png)
-![](https://github.com/maning0303/MClearEditText/raw/master/screenshots/mn_clear_edittext_screenshot_002.png)
 
+<div align="center">
+<img src = "screenshots/mn_clear_edittext_screenshot_001.png" width=200 >
+<img src = "screenshots/mn_clear_edittext_screenshot_002.png" width=200 >
+</div>
 
 ## 如何添加
 ### 1:Gradle添加：
@@ -44,13 +46,13 @@
         <attr name="mClearEditText_showBottomLine" format="boolean"/>
         <!--底部线的颜色-->
         <attr name="mClearEditText_bottomLineColor" format="color"/>
-        <!--底部线的宽度 dp-->
+        <!--底部线的宽度 （默认1px）-->
         <attr name="mClearEditText_bottomLineWidth" format="dimension"/>
-        <!-- 左边图片的大小 dp-->
+        <!-- 左边图片的大小 (默认18dp)-->
         <attr name="mClearEditText_leftDrawableSize" format="dimension"/>
         <!-- 是否显示右边删除按钮 :默认显示-->
         <attr name="mClearEditText_disableClear" format="boolean"/>
-        <!-- 右边图片的大小 dp-->
+        <!-- 右边图片的大小 (默认18dp)-->
         <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
     </declare-styleable>
 

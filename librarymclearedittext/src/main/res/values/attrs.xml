@@ -14,6 +14,8 @@
         <attr name="mClearEditText_disableClear" format="boolean"/>
         <!-- 右边图片的大小 -->
         <attr name="mClearEditText_rightDrawableSize" format="dimension"/>
+        <!-- 一直显示右侧图标 -->
+        <attr name="mClearEditText_rightDrawableAlwaysShow" format="boolean"/>
     </declare-styleable>
 
 

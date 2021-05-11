@@ -6,12 +6,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 /**
@@ -27,11 +30,11 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
      */
     private Paint mPaint;
     /**
-     * 右边可以清除的小图标
+     * 右边
      */
-    private Drawable mClearDrawable;
+    private Drawable mRightDrawable;
     /**
-     * 右边可以清除的小图标
+     * 左边
      */
     private Drawable mLeftDrawable;
     /**
@@ -51,10 +54,11 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
     private int defaultBottomLineColor;
     //是否展示底部线
     private boolean showBottomLine;
+    private boolean rightDrawableAlwaysShow;
     //底部线的宽度
     private float bottomLineWidth;
     //清除功能是否可用
-    private boolean disableClean;
+    private boolean disableClear;
     //左边图标的大小
     private float leftDrawableSize;
     //右边图标的大小
@@ -94,6 +98,11 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
         updateDrawable(true);
     }
 
+    @Override
+    public void setInputType(int type) {
+        super.setInputType(type);
+    }
+
     /**
      * 获取自定义属性
      */
@@ -103,21 +112,26 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
         //是否展示底部线
         showBottomLine = ta.getBoolean(R.styleable.MClearEditText_mClearEditText_showBottomLine, true);
         //底部线的颜色
-        defaultBottomLineColor = ta.getColor(R.styleable.MClearEditText_mClearEditText_bottomLineColor, Color.parseColor("#E6E6E6"));
-        //底部线的宽度dp
+        defaultBottomLineColor = ta.getColor(R.styleable.MClearEditText_mClearEditText_bottomLineColor, Color.parseColor("#bfbfbf"));
+        //底部线的宽度
         bottomLineWidth = ta.getDimension(R.styleable.MClearEditText_mClearEditText_bottomLineWidth, dip2px(context, 1));
-        //左边按钮的大小dp
-        leftDrawableSize = ta.getDimension(R.styleable.MClearEditText_mClearEditText_leftDrawableSize, dip2px(context, 20));
+        //左边按钮的大小
+        leftDrawableSize = ta.getDimension(R.styleable.MClearEditText_mClearEditText_leftDrawableSize, dip2px(context, 18));
         //清除功能是否可用
-        disableClean = ta.getBoolean(R.styleable.MClearEditText_mClearEditText_disableClear, true);
-        //右边按钮的大小dp
-        rightDrawableSize = ta.getDimension(R.styleable.MClearEditText_mClearEditText_rightDrawableSize, dip2px(context, 20));
+        disableClear = ta.getBoolean(R.styleable.MClearEditText_mClearEditText_disableClear, false);
+        //右边按钮的大小
+        rightDrawableSize = ta.getDimension(R.styleable.MClearEditText_mClearEditText_rightDrawableSize, dip2px(context, 18));
+        rightDrawableAlwaysShow = ta.getBoolean(R.styleable.MClearEditText_mClearEditText_rightDrawableAlwaysShow, false);
         ta.recycle();
     }
 
     private void initDrawLine() {
         //隐藏自带的线
-        setBackgroundDrawable(null);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            setBackground(null);
+        } else {
+            setBackgroundDrawable(null);
+        }
         //初始化画笔
         mPaint = new Paint();
         mPaint.setStrokeWidth(bottomLineWidth);
@@ -136,12 +150,12 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
 
     private void setDrawable() {
         //获取EditText的DrawableRight,假如没有设置我们就使用默认的图片:左上右下（0123）
-        mClearDrawable = getCompoundDrawables()[DRAWABLE_RIGHT];
-        if (mClearDrawable == null) {
+        mRightDrawable = getCompoundDrawables()[DRAWABLE_RIGHT];
+        if (mRightDrawable == null) {
             //获取默认图标
-            mClearDrawable = getResources().getDrawable(R.drawable.mn_mclearedittext_clear_icon);
+            mRightDrawable = getResources().getDrawable(R.drawable.mn_mclearedittext_clear_icon);
         }
-        mClearDrawable.setBounds(0, 0, (int) rightDrawableSize, (int) rightDrawableSize);
+        mRightDrawable.setBounds(0, 0, (int) rightDrawableSize, (int) rightDrawableSize);
         //左边图标
         mLeftDrawable = getCompoundDrawables()[DRAWABLE_LEFT];
         if (mLeftDrawable != null) {
@@ -151,9 +165,13 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
 
     // 更新删除图片状态: 当内容不为空，而且获得焦点，才显示右侧删除按钮
     private void updateDrawable(boolean hasFocus) {
+        if (rightDrawableAlwaysShow) {
+            setCompoundDrawables(mLeftDrawable, getCompoundDrawables()[DRAWABLE_TOP], mRightDrawable, getCompoundDrawables()[DRAWABLE_BOTTOM]);
+            return;
+        }
         if (length() > 0 && hasFocus) {
-            if (disableClean) {
-                setCompoundDrawables(mLeftDrawable, getCompoundDrawables()[DRAWABLE_TOP], mClearDrawable, getCompoundDrawables()[DRAWABLE_BOTTOM]);
+            if (!disableClear) {
+                setCompoundDrawables(mLeftDrawable, getCompoundDrawables()[DRAWABLE_TOP], mRightDrawable, getCompoundDrawables()[DRAWABLE_BOTTOM]);
             } else {
                 setCompoundDrawables(mLeftDrawable, getCompoundDrawables()[DRAWABLE_TOP], null, getCompoundDrawables()[DRAWABLE_BOTTOM]);
             }
@@ -172,7 +190,9 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
             int leftEdgeOfRightDrawable = getRight() - getPaddingRight()
                     - rightIcon.getBounds().width();
             if (event.getRawX() >= leftEdgeOfRightDrawable) {
-                setText("");
+                if(clickIsCleanEditText){
+                    setText("");
+                }
                 if (mOnClearClickListener != null) {
                     mOnClearClickListener.onClick();
                 }
@@ -205,7 +225,8 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
 
     @Override
     protected void finalize() throws Throwable {
-        mClearDrawable = null;
+        mRightDrawable = null;
+        mLeftDrawable = null;
         super.finalize();
     }
 
@@ -221,10 +242,29 @@ public class MClearEditText extends EditText implements View.OnFocusChangeListen
     }
 
     private OnClearClickListener mOnClearClickListener;
+    //点击右侧按钮，是否清空输入框
+    private boolean clickIsCleanEditText = true;
 
     //设置监听
     public void setOnClearClickListener(OnClearClickListener mOnClearClickListener) {
+        setOnClearClickListener(true, mOnClearClickListener);
+    }
+
+    public void setOnClearClickListener(boolean clickIsCleanEditText, OnClearClickListener mOnClearClickListener) {
         this.mOnClearClickListener = mOnClearClickListener;
+        this.clickIsCleanEditText = clickIsCleanEditText;
+    }
+
+    public void setRightDrawable(Drawable drawable) {
+        mRightDrawable = drawable;
+        mRightDrawable.setBounds(0, 0, (int) rightDrawableSize, (int) rightDrawableSize);
+        updateDrawable(false);
+    }
+
+    public void setLeftDrawable(Drawable drawable) {
+        mLeftDrawable = drawable;
+        mLeftDrawable.setBounds(0, 0, (int) leftDrawableSize, (int) leftDrawableSize);
+        updateDrawable(false);
     }
 
 

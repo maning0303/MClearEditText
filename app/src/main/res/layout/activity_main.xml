@@ -12,38 +12,40 @@
         android:layout_height="40dp"
         android:drawablePadding="6dp"
         android:focusable="true"
-        android:textCursorDrawable="@drawable/edit_cursor_color"
         android:gravity="center_vertical"
-        android:hint="默认显示"
+        android:hint="默认显示，默认不显示右侧图片"
+        android:textCursorDrawable="@drawable/edit_cursor_color"
         android:textSize="14sp" />
 
     <com.maning.library.MClearEditText
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/icon_password"
+        android:drawableRight="@drawable/icon_close_eye"
         android:drawablePadding="6dp"
-        android:hint="清除功能不可见"
+        android:hint="密码可见不可见功能"
         android:inputType="textPassword"
         android:textSize="14sp"
         app:mClearEditText_bottomLineColor="@color/colorAccent"
         app:mClearEditText_bottomLineWidth="1dp"
-        app:mClearEditText_disableClear="false"
+        app:mClearEditText_rightDrawableAlwaysShow="true"
         app:mClearEditText_rightDrawableSize="20dp" />
-
 
     <com.maning.library.MClearEditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/icon_other2"
-        android:drawablePadding="6dp"
         android:drawableRight="@drawable/icon_clear"
+        android:drawablePadding="6dp"
         android:hint="自定义清除按钮(大小和样式)"
         android:textSize="14sp"
+        app:mClearEditText_rightDrawableAlwaysShow="true"
         app:mClearEditText_bottomLineColor="@color/colorPrimary"
         app:mClearEditText_leftDrawableSize="20dp"
-        app:mClearEditText_rightDrawableSize="24dp" />
+        app:mClearEditText_rightDrawableSize="20dp" />
 
     <com.maning.library.MClearEditText
         android:layout_width="match_parent"
@@ -58,7 +60,6 @@
     <com.maning.library.MClearEditText
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/icon_other"
         android:drawablePadding="6dp"
@@ -82,7 +83,6 @@
             android:drawablePadding="6dp"
             android:hint="底部的线不显示"
             android:textSize="14sp"
-            app:mClearEditText_leftDrawableSize="18dp"
             app:mClearEditText_showBottomLine="false" />
 
     </RelativeLayout>
