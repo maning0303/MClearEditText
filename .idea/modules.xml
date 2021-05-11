@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MClearEditText.iml" filepath="$PROJECT_DIR$/MClearEditText.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/librarymclearedittext/librarymclearedittext.iml" filepath="$PROJECT_DIR$/librarymclearedittext/librarymclearedittext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MClearEditText.iml" filepath="$PROJECT_DIR$/MClearEditText.iml" group="MClearEditText" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="MClearEditText/app" />
+      <module fileurl="file://$PROJECT_DIR$/librarymclearedittext/librarymclearedittext.iml" filepath="$PROJECT_DIR$/librarymclearedittext/librarymclearedittext.iml" group="MClearEditText/librarymclearedittext" />
     </modules>
   </component>
 </project>
